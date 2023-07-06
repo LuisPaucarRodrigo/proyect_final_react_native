@@ -1,16 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import React from 'react';
+import LoginScreen from './src/LoginScreen.js';
+import SplashScreen from './src/SplashScreen.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import NavigatorScreen from './src/NavigatorScreen.js';
+import PeliculaScreen from './src/PeliculaScreen.js';
+import RegisterScreen from './src/RegisterScreen.js';
 
-export default function App() {
+// import SplashScreen from 'react-native-splash-screen';
+
+const App = () => {
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer style={styles.content}>
+        <Stack.Navigator initialRouteName="Login"  >
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false,headerLeft: null }} />
+          <Stack.Screen name="Navigator" component={NavigatorScreen} options={{ headerShown: false,headerLeft: null }} />
+          <Stack.Screen name="Peliculas" component={PeliculaScreen} options={{ headerShown: false,headerLeft: null }} />
+          <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: false,headerLeft: null }} />
+        </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -18,3 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
