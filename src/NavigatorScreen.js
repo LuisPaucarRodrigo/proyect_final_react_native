@@ -49,14 +49,14 @@ const NavigatorScreen = () => {
         )
       }}/>
 
-      <Tab.Screen name="Usuario" component={ProfileScreen}
+      {/* <Tab.Screen name="Usuario" component={ProfileScreen}
       options={{
         headerShown: false ,
         tabBarLabel: 'Usuario',
         tabBarIcon:({color,size})=> (
           <MaterialCommunityIcons name="account" color={color} size={size}/>
         )
-      }}/>
+      }}/> */}
     </Tab.Navigator>
   )
 };

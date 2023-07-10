@@ -21,11 +21,31 @@ const InicioScreen = () => {
       });
   }, []);
 
+  const categorias = {
+    accion: apidata.filter(item => item.categoria.nombre === 'Accion'),
+    drama: apidata.filter(item => item.categoria.nombre === 'Drama'),
+    romance: apidata.filter(item => item.categoria.nombre === 'Romance'),
+    terror: apidata.filter(item => item.categoria.nombre === 'Terror'),
+    comedia: apidata.filter(item => item.categoria.nombre === 'Comedia')
+  };
 
   const date = [
-    { id: 1, title: 'Serie 1', image: require('../assets/movie1.jpeg') },
-    { id: 2, title: 'Película 1', image: require('../assets/movie1.jpeg') },
-    { id: 3, title: 'Serie 2', image: require('../assets/movie1.jpeg') },
+    {
+      id: 1,
+      title: 'Stranger Things',
+      image:'https://i.blogs.es/e9b4ee/strangerthings4/1366_2000.jpg',
+    },
+    {
+      id: 2,
+      title: 'Game of Thrones',
+
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqQQoYezTpUKiBM9XNwJtw2sWp-XCnCVBiMqzBxYBiDm3b_l6j0esgnMjfJRygmP1wNf4',
+    },
+    {
+      id: 3,
+      title: 'The Shawshank Redemption',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxlCjLPVd7RZxLo5SWjiaUIGlRFVvyow5KMw7_3PtdCpx7BESXkFH70fuOGwpPLOGCE5w',
+    },
     // Agrega más contenido aquí
   ];
 
@@ -34,7 +54,7 @@ const InicioScreen = () => {
   const renderContentCarrusel = ({ item }) => {
     return (
       <View>
-        <Image style={styles.contentImageCarrusel} source={item.image} /> 
+        <Image style={styles.contentImageCarrusel} source={{ uri : item.image }} /> 
       </View>
     );
   };
@@ -61,21 +81,42 @@ const InicioScreen = () => {
           autoplay
           autoplayInterval={3000}
         />
-        <Text style={styles.sectionTitle}>Volver a ver</Text>
+        <Text style={styles.sectionTitle}>Accion</Text>
         <FlatList
-          data={apidata}
+          data={categorias.accion}
           keyExtractor={(item) => item._id.toString()}
           renderItem={renderContentItem}
           horizontal
         />
-        <Text style={styles.sectionTitle}>Las 10 mas populares en España hoy</Text>
+        <Text style={styles.sectionTitle}>Drama</Text>
         <FlatList
-          data={apidata}
+          data={categorias.drama}
           keyExtractor={(item) => item._id.toString()}
           renderItem={renderContentItem}
           horizontal
         />
-        <Text style={styles.sectionTitle}>Inicio</Text>
+        <Text style={styles.sectionTitle}>Comedia</Text>
+        <FlatList
+          data={categorias.comedia}
+          keyExtractor={(item) => item._id.toString()}
+          renderItem={renderContentItem}
+          horizontal
+        />
+        <Text style={styles.sectionTitle}>Terror</Text>
+        <FlatList
+          data={categorias.terror}
+          keyExtractor={(item) => item._id.toString()}
+          renderItem={renderContentItem}
+          horizontal
+        />
+        <Text style={styles.sectionTitle}>Romance</Text>
+        <FlatList
+          data={categorias.romance}
+          keyExtractor={(item) => item._id.toString()}
+          renderItem={renderContentItem}
+          horizontal
+        />
+        <Text style={styles.sectionTitle}>Mix</Text>
         <FlatList
           data={apidata}
           keyExtractor={(item) => item._id.toString()}

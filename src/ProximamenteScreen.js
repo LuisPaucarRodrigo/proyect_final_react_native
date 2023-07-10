@@ -5,24 +5,24 @@ const ProximamenteScreen = () => {
   const movies = [
     {
       id: 1,
-      title: 'Película 1',
-      description: 'Descripción de la Película 1',
-      releaseDate: '10 de Julio, 2023',
-      image: require('../assets/movie1.jpeg'),
+      title: 'Stranger Things',
+      description: 'Una serie de ciencia ficción y horror ambientada en los años 80, donde un grupo de niños de un pequeño pueblo se enfrenta a criaturas aterradoras y a un universo paralelo llamado "Upside Down',
+      releaseDate: '15 de julio de 2016',
+      image:'https://i.blogs.es/e9b4ee/strangerthings4/1366_2000.jpg',
     },
     {
       id: 2,
-      title: 'On My Block:Temporada 1',
-      description: 'La historia se centra en Monse, Cesar, Ruby y Jamal, quienes enfrentan los desafíos típicos de la adolescencia, como la amistad, el amor y las expectativas familiares.',
-      releaseDate: '15 de Agosto, 2023',
-      image: require('../assets/movie1.jpeg'),
+      title: 'Game of Thrones',
+      description: ' Una épica serie de fantasía basada en las novelas de George R.R. Martin, donde noblezas y familias luchan por el control del Trono de Hierro en el ficticio continente de Westeros.',
+      releaseDate: '17 de abril de 2011',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqQQoYezTpUKiBM9XNwJtw2sWp-XCnCVBiMqzBxYBiDm3b_l6j0esgnMjfJRygmP1wNf4',
     },
     {
       id: 3,
-      title: 'Película 3',
-      description: 'Descripción de la Película 3',
-      releaseDate: '20 de Septiembre, 2023',
-      image: require('../assets/movie1.jpeg'),
+      title: 'The Shawshank Redemption',
+      description: 'Un drama carcelario que narra la amistad entre dos prisioneros, Andy Dufresne y Red, mientras enfrentan los desafíos y la injusticia dentro de la penitenciaría de Shawshank',
+      releaseDate: '23 de septiembre de 1994',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxlCjLPVd7RZxLo5SWjiaUIGlRFVvyow5KMw7_3PtdCpx7BESXkFH70fuOGwpPLOGCE5w',
     },
     // Agrega más películas aquí
   ];
@@ -32,7 +32,7 @@ const ProximamenteScreen = () => {
       <ScrollView>
         {movies.map((movie) => (
           <View key={movie.id} style={styles.movieContainer}>
-            <Image source={movie.image} style={styles.movieImage} />
+            <Image source={{ uri: movie.image }} style={styles.movieImage} />
             <Text style={styles.movieTitle}>{movie.title}</Text>
             <Text style={styles.movieDescription}>{movie.description}</Text>
             <Text style={styles.movieReleaseDate}>{movie.releaseDate}</Text>
